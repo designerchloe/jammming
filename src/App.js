@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import Playlist from './Playlist';
 
-const results = [
+const searchResults = [
   {
     title: 'Mary Jane.',
     artist: 'RAYE',
@@ -45,7 +45,7 @@ function App() {
       <div className='main-column'>
         <h1>Create a Playlist</h1>
         <SearchBar />
-        <SearchResults />
+        <SearchResults searchResults={searchResults} />
       </div>
       <Playlist playlistName={playlistName} onNameChange={updatePlaylistName} />
     </div>

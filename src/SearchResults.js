@@ -2,17 +2,16 @@ import React from 'react';
 import styles from './SearchResults.module.css';
 import Track from './Track';
 
-const SearchResults = ( { results, updatePlaylist } ) => {
-
+const SearchResults = (props) => {
 
     return (
         <div className={styles.container}>
-            {/* {results.map((result) => (
+            {props.searchResults.map((result) => (
                 <div>
-                    <Track inTracklist={false} updatePlaylist={updatePlaylist} results={results} title={result.title} artist={result.artist} id={result.id} />
+                    <Track title={result.title} artist={result.artist} id={result.id} />
                     <div className={styles.rule}></div>
                 </div>
-            ))} */}
+            ))}
         </div>
     )
 };
