@@ -4,7 +4,11 @@ import Tracklist from './Tracklist';
 import styles from './Playlist.module.css';
 
 
-const Playlist = () => {
+const Playlist = (props) => {
+
+    const handleChange = (e) => {
+        props.onNameChange(e.target.value)
+    };
     
     return (
         <div className={styles.container}>
@@ -17,6 +21,8 @@ const Playlist = () => {
                     <input 
                     type="text" 
                     className={styles.input}
+                    defaultValue={props.playlistName}
+                    onChange={handleChange}
                     />
                 </div>
                 <Button />

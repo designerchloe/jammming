@@ -33,6 +33,13 @@ const results = [
 ];
 
 function App() {
+  const [playlistName, setPlaylistName] = useState("Fresh new list");
+
+  const updatePlaylistName = ((name) => {
+    setPlaylistName(name);
+  });
+
+
   return (
     <div className='page-container'>
       <div className='main-column'>
@@ -40,7 +47,7 @@ function App() {
         <SearchBar />
         <SearchResults />
       </div>
-      <Playlist />
+      <Playlist playlistName={playlistName} onNameChange={updatePlaylistName} />
     </div>
   );
 }
