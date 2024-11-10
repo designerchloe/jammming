@@ -54,9 +54,15 @@ function App() {
     setPlaylistName(name);
   };
 
-  const addTrack = () => {
+  const addTrack = (track) => {
+    if (playlistTracks.some((savedTrack) => savedTrack.id === track.id))
+      return;
+    setPlaylistTracks((prev) => [...prev, track]);
+  };
 
-  }
+  const removeTrack = (track) => {
+    setPlaylistTracks(prev => prev.filter((currentTrack) => currentTrack.id !== track.id))
+  };
 
 
   return (
@@ -70,6 +76,7 @@ function App() {
       playlistName={playlistName} 
       onNameChange={updatePlaylistName}
       playlistTracks={playlistTracks}
+      onRemove={removeTrack}
        />
     </div>
   );

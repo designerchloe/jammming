@@ -5,10 +5,19 @@ import styles from './Track.module.css';
 const Track = (props) => {
     const [isHovered, setIsHovered] = useState(false);
 
+    const handleClick = () => {
+        if (props.onAdd) {
+            props.onAdd(props.track);
+        } else if (props.onRemove) {
+            props.onRemove(props.track);
+        }
+    }
+
     return (
         <div 
         onMouseEnter={() => setIsHovered(true)} 
         onMouseLeave={() => setIsHovered(false)}
+        onClick={handleClick}
         className={styles.container}>
             <div className={styles.text}>
                 <p className={styles.song}>{props.title}</p>

@@ -11,7 +11,9 @@ const Tracklist = (props) => {
                 track={track}
                 key={track.id} 
                 artist={track.artist} 
-                title={track.title} />
+                title={track.title}
+                onAdd={props.onAdd}
+                onRemove={props.onRemove} />
             ))}
         </div>
      )
