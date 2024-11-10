@@ -24,10 +24,10 @@ const Track = (props) => {
                 <p className={styles.artist}>{props.artist}</p>
             </div>
             <button className={styles.button}>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.33463 16L22.668 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <svg style={props.inPlaylist === true ? {display: 'block'} : {display: 'none'}} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.33463 16L22.668 16" stroke={isHovered ? '#C8EC5C' : '#ffffff'} stroke-width="2" stroke-linecap="round"/>
             </svg>
-            <svg width="32" height="33" viewBox="0 0 32 33" fill='none' xmlns="http://www.w3.org/2000/svg">
+            <svg style={props.inPlaylist === false ? {display: 'block'} : {display: 'none'}} width="32" height="33" viewBox="0 0 32 33" fill='none' xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 23.1507V9.81738" stroke={isHovered ? '#C8EC5C' : '#ffffff'} stroke-width="2" stroke-linecap="round"/>
                 <path d="M9.33463 16.4844L22.668 16.4844" stroke={isHovered ? '#C8EC5C' : '#ffffff'} stroke-width="2" stroke-linecap="round"/>
             </svg>

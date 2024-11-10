@@ -5,7 +5,7 @@ import Tracklist from './Tracklist';
 const SearchResults = (props) => {
 
     return (
-        <Tracklist tracks={props.searchResults} onAdd={props.onAdd} />
+        <Tracklist tracks={props.searchResults} onAdd={props.onAdd} inPlaylist={false} />
     )
 };
 
