@@ -50,9 +50,13 @@ function App() {
   const [searchResults, setSearchResults] = useState(results);
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const updatePlaylistName = ((name) => {
+  const updatePlaylistName = (name) => {
     setPlaylistName(name);
-  });
+  };
+
+  const addTrack = () => {
+
+  }
 
 
   return (
@@ -60,7 +64,7 @@ function App() {
       <div className='main-column'>
         <h1>Create a Playlist</h1>
         <SearchBar />
-        <SearchResults searchResults={searchResults} />
+        <SearchResults searchResults={searchResults} onAdd={addTrack} />
       </div>
       <Playlist 
       playlistName={playlistName} 
