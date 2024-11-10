@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 8px;
+    transition: background-color 300ms ease-out;
+    border-radius: 8px;
+}
+
+.container:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+}
+
+.song {
+    color: #fff;
+    font-size: 18px;
+    margin: 0;
+}
+
+.artist {
+    color: #CBCBCB;
+    font-size: 14px;
+    margin: 0;
+}
+
+.button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px solid #000000;
+    margin: 0;
+    padding: 0;
+}
