@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import Playlist from './Playlist';
 
-const searchResults = [
+const results = [
   {
     title: 'Mary Jane.',
     artist: 'RAYE',
@@ -32,8 +32,23 @@ const searchResults = [
   }
 ];
 
+// const chosenTracks = [
+//   {
+//     title: 'Mary Jane.',
+//     artist: 'RAYE',
+//     id: '0'
+//   },
+//   {
+//     title: 'Genesis, pt. ii',
+//     artist: 'RAYE',
+//     id: '1'
+//   }
+// ];
+
 function App() {
   const [playlistName, setPlaylistName] = useState("Fresh new list");
+  const [searchResults, setSearchResults] = useState(results);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const updatePlaylistName = ((name) => {
     setPlaylistName(name);
@@ -47,7 +62,11 @@ function App() {
         <SearchBar />
         <SearchResults searchResults={searchResults} />
       </div>
-      <Playlist playlistName={playlistName} onNameChange={updatePlaylistName} />
+      <Playlist 
+      playlistName={playlistName} 
+      onNameChange={updatePlaylistName}
+      playlistTracks={playlistTracks}
+       />
     </div>
   );
 }

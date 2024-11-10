@@ -27,7 +27,7 @@ const Playlist = (props) => {
                 </div>
                 <Button />
             </div>
-            <Tracklist />
+            <Tracklist tracks={props.playlistTracks} />
         </div>
     )
 };
