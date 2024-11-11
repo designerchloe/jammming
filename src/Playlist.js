@@ -21,11 +21,11 @@ const Playlist = (props) => {
                     <input 
                     type="text" 
                     className={styles.input}
-                    defaultValue={props.playlistName}
+                    value={props.playlistName}
                     onChange={handleChange}
                     />
                 </div>
-                <Button />
+                <Button onSave={props.onSave} />
             </div>
             <Tracklist tracks={props.playlistTracks} onRemove={props.onRemove} inPlaylist={true} />
         </div>

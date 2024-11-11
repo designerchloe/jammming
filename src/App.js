@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
@@ -8,42 +8,34 @@ const results = [
   {
     title: 'Mary Jane.',
     artist: 'RAYE',
-    id: '0'
+    id: '0',
+    uri: 'spotify:track:3PLTYnLCus4KHeCyW2jsee'
   },
   {
     title: 'Genesis, pt. ii',
     artist: 'RAYE',
-    id: '1'
+    id: '1',
+    uri: 'spotify:track:1qvgsMTiNL4WwUnQ9yMz2m'
   },
   {
     title: 'The Thrill is Gone.',
     artist: 'RAYE',
-    id: '2'
+    id: '2',
+    uri: 'spotify:track:5eVG50IlyjSevPsWnSI76r'
   },
   {
     title: 'Oscar Winning Tears.',
     artist: 'RAYE',
-    id: '3'
+    id: '3',
+    uri: 'spotify:track:0iO2iCAjtX0t5duvczNQt6'
   },
   {
     title: 'Escapism.',
     artist: 'RAYE',
-    id: '4'
+    id: '4',
+    uri: 'spotify:track:5mHdCZtVyb4DcJw8799hZp'
   }
 ];
-
-// const chosenTracks = [
-//   {
-//     title: 'Mary Jane.',
-//     artist: 'RAYE',
-//     id: '0'
-//   },
-//   {
-//     title: 'Genesis, pt. ii',
-//     artist: 'RAYE',
-//     id: '1'
-//   }
-// ];
 
 function App() {
   const [playlistName, setPlaylistName] = useState("Fresh new list");
@@ -64,6 +56,14 @@ function App() {
     setPlaylistTracks(prev => prev.filter((currentTrack) => currentTrack.id !== track.id))
   };
 
+  const savePlaylist = () => {
+    const uriArray = playlistTracks.map((track) => track.uri);
+    setPlaylistTracks([]);
+    setPlaylistName("Cool new list");
+    console.log(uriArray);
+    console.log(playlistName);
+  };
+
 
   return (
     <div className='page-container'>
@@ -77,6 +77,7 @@ function App() {
       onNameChange={updatePlaylistName}
       playlistTracks={playlistTracks}
       onRemove={removeTrack}
+      onSave={savePlaylist}
        />
     </div>
   );
