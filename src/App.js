@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import Playlist from './Playlist';
+import Spotify from './Spotify';
 
 const results = [
   {
@@ -39,8 +40,12 @@ const results = [
 
 function App() {
   const [playlistName, setPlaylistName] = useState("Fresh new list");
-  const [searchResults, setSearchResults] = useState(results);
+  const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
+
+  const search = (term) => {
+    Spotify.search(term).then(setSearchResults);
+  };
 
   const updatePlaylistName = (name) => {
     setPlaylistName(name);
@@ -69,7 +74,7 @@ function App() {
     <div className='page-container'>
       <div className='main-column'>
         <h1>Create a Playlist</h1>
-        <SearchBar />
+        <SearchBar onSearch={search} />
         <SearchResults searchResults={searchResults} onAdd={addTrack} />
       </div>
       <Playlist 
