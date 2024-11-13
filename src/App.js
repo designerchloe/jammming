@@ -63,10 +63,10 @@ function App() {
 
   const savePlaylist = () => {
     const uriArray = playlistTracks.map((track) => track.uri);
-    setPlaylistTracks([]);
-    setPlaylistName("Cool new list");
-    console.log(uriArray);
-    console.log(playlistName);
+    Spotify.save(playlistName, uriArray).then(() => {
+      setPlaylistTracks([]);
+      setPlaylistName("Cool new list");
+    })
   };
 
 
